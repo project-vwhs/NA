@@ -3,374 +3,277 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2025 Community Needs Assessment</title>
+    <title>Southern Colorado Healthcare Needs Assessment</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            500: '#14b8a6',
+                            700: '#0f766e',
+                            900: '#134e4a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        .scroll-smooth { scroll-behavior: smooth; }
-        .glass-panel { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
-        /* Prevent scrolling when modal is open */
-        body.modal-open { overflow: hidden; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+        .fade-in { animation: fadeIn 0.8s ease-in-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .img-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border: 1px solid #e5e7eb;
+        }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 antialiased selection:bg-blue-100">
+<body class="bg-gray-50 text-gray-800 antialiased">
 
-    <!-- Navigation -->
-    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex items-center gap-2">
-                    <i class="fa-solid fa-heart-pulse text-blue-600 text-2xl"></i>
-                    <span class="font-bold text-xl tracking-tight text-slate-900">Valley-Wide <span class="text-blue-600">CNA 2025</span></span>
-                </div>
-                <div class="hidden md:flex space-x-8 text-sm font-medium">
-                    <a href="#summary" class="text-slate-500 hover:text-blue-600 transition">Summary</a>
-                    <a href="#insurance" class="text-slate-500 hover:text-blue-600 transition">Insurance</a>
-                    <a href="#regions" class="text-slate-500 hover:text-blue-600 transition">Regions</a>
-                    <a href="#strategy" class="text-slate-500 hover:text-blue-600 transition">Strategy</a>
-                </div>
-                <a href="#conclusion" class="px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-full hover:bg-blue-700 transition shadow-md">
-                    Key Takeaways
-                </a>
+    <!-- Header Section -->
+    <header class="bg-brand-900 text-white py-16 px-6 lg:px-12 relative overflow-hidden">
+        <div class="max-w-6xl mx-auto relative z-10 fade-in">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 leading-tight">Southern Colorado Healthcare<br>Needs Assessment</h1>
+            <p class="text-xl md:text-2xl text-brand-100 max-w-2xl mb-8">Analyzing the healthcare landscape, insurance disparities, and systemic hurdles across our communities.</p>
+            <div class="flex items-center space-x-4 text-sm font-medium bg-white/10 w-max px-4 py-2 rounded-full backdrop-blur-sm">
+                <i class="fas fa-users text-brand-100"></i>
+                <span>Based on ~1,600 community survey responses</span>
             </div>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <header class="relative bg-slate-900 text-white py-24 overflow-hidden" id="summary">
-        <!-- Replaced with Drive Image ID using thumbnail endpoint -->
-        <div class="absolute inset-0 opacity-20 bg-[url('https://drive.google.com/thumbnail?id=1raNXXiZ08SuqnyyA9bVZL-m_XgxW7mxl&sz=w1000')] bg-cover bg-center mix-blend-overlay"></div>
-        <div class="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/90 to-transparent"></div>
-        
-        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-12">
-            <div class="md:w-1/2 space-y-6">
-                <div class="inline-block px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-xs font-bold uppercase tracking-wider border border-blue-500/30">Executive Summary</div>
-                <h1 class="text-4xl md:text-5xl font-bold leading-tight">2025 Community Needs Assessment</h1>
-                <p class="text-lg text-slate-300 leading-relaxed">
-                    A comprehensive analysis of 1,569 patient responses revealing a landscape defined by regional challenges and insurance-based disparities. From the "hidden" crisis of the working poor to the specific bottlenecks in the San Luis Valley.
-                </p>
-                <div class="flex flex-wrap gap-4 text-sm text-slate-400">
-                    <div class="flex items-center gap-2"><i class="fa-solid fa-users"></i> 1,569 Respondents</div>
-                    <div class="flex items-center gap-2"><i class="fa-solid fa-map-location-dot"></i> 3 Regions</div>
-                    <div class="flex items-center gap-2"><i class="fa-solid fa-chart-pie"></i> Insurance Analysis</div>
-                </div>
-            </div>
-            <div class="md:w-1/2">
-                <div class="bg-white p-2 rounded-xl shadow-2xl transform rotate-1 hover:rotate-0 transition duration-500 group cursor-zoom-in" onclick="openModal('https://drive.google.com/thumbnail?id=1raNXXiZ08SuqnyyA9bVZL-m_XgxW7mxl&sz=w1000')">
-                    <!-- Replaced with Drive Image ID using thumbnail endpoint -->
-                    <img src="https://drive.google.com/thumbnail?id=1raNXXiZ08SuqnyyA9bVZL-m_XgxW7mxl&sz=w1000" alt="Survey Response Map" class="rounded-lg w-full h-auto object-cover border border-slate-100">
-                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition rounded-lg flex items-center justify-center opacity-0 group-hover:opacity-100">
-                        <i class="fa-solid fa-magnifying-glass-plus text-white text-3xl drop-shadow-md"></i>
-                    </div>
-                    <p class="text-center text-xs text-slate-400 mt-2 font-mono">Figure 1: Service Area & Response Density (Click to Zoom)</p>
-                </div>
-            </div>
-        </div>
+        <!-- Decorative background shape -->
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-brand-700 opacity-50 blur-3xl"></div>
     </header>
 
-    <!-- Main Content -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-24">
+    <main class="max-w-6xl mx-auto px-6 lg:px-12 py-12 space-y-20">
 
-        <!-- Section 1: Insurance Analysis -->
-        <section id="insurance" class="scroll-mt-24">
-            <div class="border-l-4 border-blue-600 pl-6 mb-12">
-                <h2 class="text-3xl font-bold text-slate-900">1. The "Underinsured" Paradox</h2>
-                <p class="text-xl text-slate-500 mt-2">Insurance status remains the strongest predictor of access to care.</p>
+        <!-- Introduction & Response Map -->
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center fade-in">
+            <div>
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">Executive Summary</h2>
+                <p class="text-lg text-gray-600 mb-4 leading-relaxed">
+                    Based on individual survey responses from roughly 1,600 community members across Southern Colorado, the healthcare landscape is heavily shaped by an aging demographic, widespread struggles with dental care, and surprising disparities in how well different insurance types protect patients from financial burdens.
+                </p>
+                <div class="bg-brand-50 border-l-4 border-brand-500 p-6 rounded-r-lg mt-6">
+                    <h4 class="font-semibold text-brand-900 mb-2">Total Responses by Region</h4>
+                    <ul class="space-y-2 text-gray-700">
+                        <li><i class="fas fa-map-marker-alt w-5 text-brand-500"></i> <strong>San Luis Valley (811):</strong> 923 respondents</li>
+                        <li><i class="fas fa-map-marker-alt w-5 text-brand-500"></i> <strong>Lower Arkansas Valley (810):</strong> 384 respondents</li>
+                        <li><i class="fas fa-map-marker-alt w-5 text-brand-500"></i> <strong>Upper Arkansas Valley (812):</strong> 219 respondents</li>
+                        <li class="text-sm text-gray-500 italic mt-2">*Additional 30 respondents fell outside these specific target regions.</li>
+                    </ul>
+                </div>
             </div>
-
-            <div class="grid lg:grid-cols-2 gap-12 items-start">
-                <div class="space-y-8">
-                    <div class="prose prose-slate">
-                        <p class="lead">The data uncovers a "hidden" crisis among the working population that rivals the challenges faced by the uninsured.</p>
-                    </div>
-
-                    <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 hover:shadow-md transition group">
-                        <div class="flex items-start gap-4">
-                            <div class="p-3 bg-red-100 text-red-600 rounded-lg group-hover:bg-red-600 group-hover:text-white transition-colors">
-                                <i class="fa-solid fa-ban text-xl"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-slate-900 text-lg">The Uninsured Crisis</h3>
-                                <p class="text-slate-600 mt-2 text-sm leading-relaxed">
-                                    <span class="font-bold text-red-600">61.1%</span> report cost as a major barrier. Effectively excluded from the dental system (47.2%) and struggling significantly with primary care (40.3%).
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 hover:shadow-md transition group">
-                        <div class="flex items-start gap-4">
-                            <div class="p-3 bg-orange-100 text-orange-600 rounded-lg group-hover:bg-orange-600 group-hover:text-white transition-colors">
-                                <i class="fa-solid fa-briefcase text-xl"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-slate-900 text-lg">The "Working Poor" & Appointments</h3>
-                                <p class="text-slate-600 mt-2 text-sm leading-relaxed">
-                                    Patients with Employer-Sponsored Insurance report the <span class="font-bold text-orange-600">highest rate (24.7%)</span> of difficulty securing a General Doctor appointment—double that of Medicaid/Medicare.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 hover:shadow-md transition group">
-                        <div class="flex items-start gap-4">
-                            <div class="p-3 bg-green-100 text-green-600 rounded-lg group-hover:bg-green-600 group-hover:text-white transition-colors">
-                                <i class="fa-solid fa-shield-heart text-xl"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-slate-900 text-lg">The Protective Role of Medicaid</h3>
-                                <p class="text-slate-600 mt-2 text-sm leading-relaxed">
-                                    Medicaid respondents reported the lowest overall cost barriers (26.4%), indicating the safety net effectively protects enrollees from out-of-pocket costs.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Drive Images Column (Fixed Links) -->
-                <div class="space-y-8">
-                    <div class="bg-white p-4 rounded-2xl shadow-lg border border-slate-100 group cursor-zoom-in relative" onclick="openModal('https://drive.google.com/thumbnail?id=122Ggcm5yb-NvXPDYCP4sCSlvYSc5O8ns&sz=w1000')">
-                        <h4 class="text-sm font-bold text-slate-400 uppercase tracking-wider mb-4 px-2">Barriers by Insurance Type</h4>
-                        <div class="relative overflow-hidden rounded-lg">
-                            <img src="https://drive.google.com/thumbnail?id=122Ggcm5yb-NvXPDYCP4sCSlvYSc5O8ns&sz=w1000" alt="Heatmap of Cost Barriers" class="w-full transition duration-300 group-hover:scale-105">
-                            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition flex items-center justify-center opacity-0 group-hover:opacity-100">
-                                <i class="fa-solid fa-magnifying-glass-plus text-white text-3xl drop-shadow-md"></i>
-                            </div>
-                        </div>
-                        <p class="text-xs text-slate-400 mt-3 text-center italic">Heatmap illustrating the intensity of barriers across different insurance groups.</p>
-                    </div>
-                    
-                    <div class="bg-white p-4 rounded-2xl shadow-lg border border-slate-100 group cursor-zoom-in relative" onclick="openModal('https://drive.google.com/thumbnail?id=17jVuLSx5s6CJ6YcZ6REuSznVSK24p-82&sz=w1000')">
-                         <h4 class="text-sm font-bold text-slate-400 uppercase tracking-wider mb-4 px-2">Overall Cost Barrier</h4>
-                         <div class="relative overflow-hidden rounded-lg">
-                            <img src="https://drive.google.com/thumbnail?id=17jVuLSx5s6CJ6YcZ6REuSznVSK24p-82&sz=w1000" alt="Cost Barrier Graph" class="w-full transition duration-300 group-hover:scale-105">
-                            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition flex items-center justify-center opacity-0 group-hover:opacity-100">
-                                <i class="fa-solid fa-magnifying-glass-plus text-white text-3xl drop-shadow-md"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="img-container">
+                <!-- Survey Response Map -->
+                <img src="https://drive.google.com/uc?export=view&id=12QTxm9xCtw2FlP7R_QenvIwU_KpOqaIZ" alt="Map of Survey Responses by Zip Code">
             </div>
         </section>
 
-        <hr class="border-slate-200">
-
-        <!-- Section 2: Regional Analysis -->
-        <section id="regions" class="scroll-mt-24">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl font-bold text-slate-900">2. A Tale of Three Valleys</h2>
-                <p class="text-lg text-slate-500 mt-4">The data reveals that "access" means fundamentally different things depending on where a patient lives.</p>
+        <!-- PART 1: OVERVIEW OF RESULTS -->
+        <div class="border-t border-gray-200 pt-16">
+            <div class="text-center mb-12">
+                <span class="text-brand-500 font-bold tracking-wider uppercase text-sm">Part 1</span>
+                <h2 class="text-4xl font-bold text-gray-900 mt-2">Overview of Results</h2>
+                <p class="text-gray-500 mt-4 max-w-2xl mx-auto">Examining the insurance landscape, the reality of cost barriers, and the universal systemic hurdles affecting Southern Colorado.</p>
             </div>
 
-            <!-- UAV Section -->
-            <div class="flex flex-col md:flex-row gap-12 items-center mb-24">
-                <div class="md:w-1/2 order-2 md:order-1">
-                    <div class="bg-indigo-50 rounded-2xl p-2 rotate-1 hover:rotate-0 transition duration-500 group cursor-zoom-in" onclick="openModal('https://drive.google.com/thumbnail?id=1ukthgn0ze7gwdykAM1sKuRuM-SRLU103&sz=w1000')">
-                        <div class="relative overflow-hidden rounded-xl shadow-lg">
-                            <!-- Replaced with Drive Image ID using thumbnail endpoint -->
-                            <img src="https://drive.google.com/thumbnail?id=1ukthgn0ze7gwdykAM1sKuRuM-SRLU103&sz=w1000" alt="Specialty Cost Map" class="w-full transition duration-300 group-hover:scale-105">
-                            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition flex items-center justify-center opacity-0 group-hover:opacity-100">
-                                <i class="fa-solid fa-magnifying-glass-plus text-white text-3xl drop-shadow-md"></i>
+            <!-- The Insurance Landscape -->
+            <section class="mb-20">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center"><i class="fas fa-id-card text-brand-500 mr-3"></i> The Insurance Landscape</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <div class="prose prose-lg text-gray-600">
+                        <p>The community is predominantly covered by public insurance. <strong>Medicare is the dominant provider</strong>, covering nearly half of all respondents (760 individuals), which strongly suggests an aging population with high chronic healthcare needs.</p>
+                        <p><strong>Medicaid</strong> is the second most common (344 individuals), followed by <strong>Employer-Sponsored</strong> coverage (306 individuals). Only a small fraction of the population reported being entirely <strong>Uninsured</strong> (75 individuals).</p>
+                    </div>
+                    <div class="img-container">
+                        <!-- Cost Barrier Any by Insurance Chart -->
+                        <img src="https://drive.google.com/uc?export=view&id=17jVuLSx5s6CJ6YcZ6REuSznVSK24p-82" alt="Percentage of Respondents Reporting Any Cost Barrier by Insurance">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Cost Barriers by Coverage Type -->
+            <section class="mb-20">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center"><i class="fas fa-hand-holding-dollar text-brand-500 mr-3"></i> The Reality of Cost Barriers</h3>
+                <p class="text-lg text-gray-600 mb-8">When evaluating who actually delays or skips care due to cost, the data reveals critical gaps in the modern healthcare safety net:</p>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-10">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                        <div class="text-red-500 mb-4"><i class="fas fa-triangle-exclamation text-3xl"></i></div>
+                        <h4 class="font-bold text-xl mb-2 text-gray-900">The Uninsured</h4>
+                        <p class="text-gray-600">Unsurprisingly, <strong>61.3%</strong> of uninsured individuals faced prohibitive cost barriers in the past 12 months, making them the most vulnerable group.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                        <div class="text-orange-500 mb-4"><i class="fas fa-briefcase-medical text-3xl"></i></div>
+                        <h4 class="font-bold text-xl mb-2 text-gray-900">Employer-Sponsored Paradox</h4>
+                        <p class="text-gray-600">Shockingly, individuals with Employer-Sponsored insurance reported the second-highest rate of cost barriers at <strong>38.6%</strong>. Working-class families are struggling with high deductibles and severe out-of-pocket maximums.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                        <div class="text-green-500 mb-4"><i class="fas fa-shield-heart text-3xl"></i></div>
+                        <h4 class="font-bold text-xl mb-2 text-gray-900">Medicaid's Protective Effect</h4>
+                        <p class="text-gray-600">Medicaid recipients reported the <strong>lowest</strong> rate of cost barriers (<strong>26.7%</strong>). Its structure of zero or low co-pays is highly effective, outperforming Medicare (30.7%) and Commercial plans (29.9%).</p>
+                    </div>
+                </div>
+
+                <div class="img-container mt-8 max-w-4xl mx-auto">
+                    <!-- Heatmap: Type of Cost Barrier by Insurance Status -->
+                    <img src="https://drive.google.com/uc?export=view&id=122Ggcm5yb-NvXPDYCP4sCSlvYSc5O8ns" alt="Heatmap of Cost Barriers by Insurance">
+                </div>
+            </section>
+
+            <!-- Universal Systemic Hurdles -->
+            <section>
+                <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center"><i class="fas fa-road-barrier text-brand-500 mr-3"></i> Universal Systemic Hurdles</h3>
+                <p class="text-lg text-gray-600 mb-8">Beyond insurance, the physical healthcare infrastructure is struggling to meet demand.</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-3">Dental Care is in Crisis</h4>
+                        <p class="text-gray-600 mb-6">Across all demographics, affording dental care and securing a timely dental appointment are the most universally reported barriers to health in the dataset.</p>
+                        <div class="img-container">
+                            <img src="https://drive.google.com/uc?export=view&id=1neeI9aZn488WP5RzdGNu5XVQOSBRUgKp" alt="Map Showing Dental Cost Barriers">
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-3">Navigation and Wait Times</h4>
+                        <p class="text-gray-600 mb-6">Almost <strong>1 in 5 respondents</strong> reported that simply "finding available needed services" or dealing with extended "wait times" prevented them from getting care. The infrastructure is present, but it is bottlenecked.</p>
+                        <div class="img-container">
+                            <img src="https://drive.google.com/uc?export=view&id=1OCalpmKB3PgZEM1jGlgEMaWjP5RXXiN1" alt="Map Showing Ability to Find Services">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- PART 2: REGIONAL DISPARITIES -->
+        <div class="border-t border-gray-200 pt-16">
+            <div class="text-center mb-12">
+                <span class="text-brand-500 font-bold tracking-wider uppercase text-sm">Part 2</span>
+                <h2 class="text-4xl font-bold text-gray-900 mt-2">Regional Disparities Analysis</h2>
+                <p class="text-gray-500 mt-4 max-w-2xl mx-auto">While the overall data paints a picture of systemic challenges, separating the data into the three primary geographic zones reveals that each community is fighting a distinctly different battle.</p>
+            </div>
+
+            <div class="mb-16 img-container max-w-4xl mx-auto">
+                 <img src="https://drive.google.com/uc?export=view&id=1dQHthMAZHiVP6tSn-GTTdCKE_5p7fPvD" alt="Chart showing Other Barriers by Region">
+                 <p class="text-center text-sm text-gray-500 mt-3">Comparison of systemic barriers (Wait times, Navigation, Transportation) across the three primary regions.</p>
+            </div>
+
+            <div class="space-y-12">
+                <!-- San Luis Valley -->
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
+                    <div class="bg-brand-900 p-6">
+                        <h3 class="text-2xl font-bold text-white">San Luis Valley <span class="text-brand-100 text-lg font-normal ml-2">(Zip codes 811)</span></h3>
+                    </div>
+                    <div class="p-6 md:p-8">
+                        <h4 class="text-xl font-semibold text-gray-900 mb-4">The Battle: Logistical Gridlock and Primary Care Shortages</h4>
+                        <p class="text-gray-600 mb-6">The San Luis Valley experiences the highest rates of friction when it comes to time, access, and primary care logistics.</p>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <div class="text-3xl font-bold text-brand-700 mb-1">19.2%</div>
+                                <div class="text-sm font-medium text-gray-800 mb-2">Highest Wait Times</div>
+                                <p class="text-xs text-gray-500">Cited wait times as a direct barrier to care, the highest of all regions.</p>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <div class="text-3xl font-bold text-brand-700 mb-1">20.5%</div>
+                                <div class="text-sm font-medium text-gray-800 mb-2">Navigation Struggles</div>
+                                <p class="text-xs text-gray-500">Reported an inability to find available needed services.</p>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <div class="text-3xl font-bold text-brand-700 mb-1">17.9%</div>
+                                <div class="text-sm font-medium text-gray-800 mb-2">Primary Care Deficit</div>
+                                <p class="text-xs text-gray-500">Unable to secure timely primary care with a General Doctor.</p>
                             </div>
                         </div>
-                        <p class="text-center text-xs text-indigo-400 mt-2 font-mono">UAV Region: High Financial Strain</p>
-                    </div>
-                </div>
-                <div class="md:w-1/2 order-1 md:order-2 space-y-6">
-                    <div class="flex items-center gap-3">
-                        <span class="w-12 h-1 bg-indigo-500 rounded-full"></span>
-                        <h3 class="text-2xl font-bold text-slate-900">Upper Arkansas Valley (UAV)</h3>
-                    </div>
-                    <div class="pl-4 border-l-2 border-indigo-100 space-y-4">
-                        <div class="bg-white p-5 rounded-lg shadow-sm border border-slate-100">
-                            <h4 class="font-bold text-indigo-700">Financial Strain & Specialist Crisis</h4>
-                            <p class="text-slate-600 text-sm mt-2">The epicenter of cost barriers (37.4%). Residents face the highest hurdles accessing Specialist Care (18.0% cost barrier).</p>
-                        </div>
-                        <div class="bg-white p-5 rounded-lg shadow-sm border border-slate-100">
-                            <h4 class="font-bold text-indigo-700">Mental Health Stigma</h4>
-                            <p class="text-slate-600 text-sm mt-2">Highest rate of Stigma (5.2%) as a barrier—double other regions—and highest cost barriers for mental health (9.5%).</p>
+                        <div class="bg-brand-50 p-4 rounded border-l-4 border-brand-500">
+                            <strong class="text-brand-900">Conclusion:</strong> <span class="text-gray-700">The SLV doesn't necessarily suffer from the worst financial barriers; rather, it suffers from a severe provider shortage and administrative gridlock that prevents patients from accessing the care they can afford.</span>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- SLV Section -->
-            <div class="flex flex-col md:flex-row gap-12 items-center mb-24">
-                <div class="md:w-1/2 space-y-6">
-                    <div class="flex items-center gap-3">
-                        <span class="w-12 h-1 bg-teal-500 rounded-full"></span>
-                        <h3 class="text-2xl font-bold text-slate-900">San Luis Valley (SLV)</h3>
+                <!-- Upper Arkansas Valley -->
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
+                    <div class="bg-brand-900 p-6">
+                        <h3 class="text-2xl font-bold text-white">Upper Arkansas Valley <span class="text-brand-100 text-lg font-normal ml-2">(Zip codes 812)</span></h3>
                     </div>
-                    <div class="pl-4 border-l-2 border-teal-100 space-y-4">
-                        <div class="bg-white p-5 rounded-lg shadow-sm border border-slate-100">
-                            <h4 class="font-bold text-teal-700">Capacity Bottlenecks</h4>
-                            <p class="text-slate-600 text-sm mt-2">Operational capacity is the primary challenge. Highest complaints regarding "Wait time" (19.3%) and difficulty finding services (20.6%).</p>
+                    <div class="p-6 md:p-8 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <h4 class="text-xl font-semibold text-gray-900 mb-4">The Battle: The Heavy Burden of Cost</h4>
+                            <p class="text-gray-600 mb-6">While the UAV generally reports lower wait times and fewer issues getting a primary doctor appointment, its residents are drowning in out-of-pocket costs. They reported the highest cost barriers across nearly every medical category.</p>
+                            
+                            <ul class="space-y-4 mb-8">
+                                <li class="flex items-start">
+                                    <i class="fas fa-tooth text-brand-500 mt-1 mr-3 w-5"></i>
+                                    <div><strong>22.8%</strong> skipped dental care due to cost.</div>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-stethoscope text-brand-500 mt-1 mr-3 w-5"></i>
+                                    <div><strong>18.3%</strong> could not afford a specialist (compared to ~11% in the other valleys).</div>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-prescription-bottle-medical text-brand-500 mt-1 mr-3 w-5"></i>
+                                    <div><strong>15.1%</strong> skipped medications due to cost.</div>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-user-doctor text-brand-500 mt-1 mr-3 w-5"></i>
+                                    <div><strong>13.7%</strong> could not afford to see their primary care provider.</div>
+                                </li>
+                            </ul>
                         </div>
-                        <div class="bg-white p-5 rounded-lg shadow-sm border border-slate-100">
-                            <h4 class="font-bold text-teal-700">Primary Care Access</h4>
-                            <p class="text-slate-600 text-sm mt-2">Hardest region to see a General Doctor—18.4% unable to get an appointment when needed.</p>
+                        <div class="img-container">
+                            <img src="https://drive.google.com/uc?export=view&id=1Nk7fxWu233bNYEhTz4Z8SfsbBN9PB9IQ" alt="Map Showing Specialty Cost Barriers">
+                        </div>
+                        <div class="lg:col-span-2 bg-brand-50 p-4 rounded border-l-4 border-brand-500">
+                            <strong class="text-brand-900">Conclusion:</strong> <span class="text-gray-700">The UAV has adequate physical access to care, but the local economy or the specific design of local insurance plans leaves residents highly exposed to medical debt and out-of-pocket expenses.</span>
                         </div>
                     </div>
                 </div>
-                <div class="md:w-1/2">
-                    <div class="bg-teal-50 rounded-2xl p-2 relative -rotate-1 hover:rotate-0 transition duration-500 group cursor-zoom-in" onclick="openModal('https://drive.google.com/thumbnail?id=1dQHthMAZHiVP6tSn-GTTdCKE_5p7fPvD&sz=w1000')">
-                        <div class="relative overflow-hidden rounded-xl shadow-lg">
-                            <!-- Replaced with Drive Image ID using thumbnail endpoint -->
-                            <img src="https://drive.google.com/thumbnail?id=1dQHthMAZHiVP6tSn-GTTdCKE_5p7fPvD&sz=w1000" alt="Other Barriers Chart" class="w-full transition duration-300 group-hover:scale-105">
-                            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition flex items-center justify-center opacity-0 group-hover:opacity-100">
-                                <i class="fa-solid fa-magnifying-glass-plus text-white text-3xl drop-shadow-md"></i>
+
+                <!-- Lower Arkansas Valley -->
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
+                    <div class="bg-brand-900 p-6">
+                        <h3 class="text-2xl font-bold text-white">Lower Arkansas Valley <span class="text-brand-100 text-lg font-normal ml-2">(Zip codes 810)</span></h3>
+                    </div>
+                    <div class="p-6 md:p-8 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <h4 class="text-xl font-semibold text-gray-900 mb-4">The Battle: Geographic and Transportation Hurdles</h4>
+                            <p class="text-gray-600 mb-6">The Lower Arkansas Valley generally reported the lowest rates of cost barriers and the fewest issues with appointment availability. However, their primary obstacle is geographic isolation.</p>
+                            
+                            <div class="bg-gray-50 p-6 rounded-lg mb-8 border border-gray-200">
+                                <div class="flex items-center mb-2">
+                                    <i class="fas fa-bus text-3xl text-brand-500 mr-4"></i>
+                                    <h5 class="text-lg font-bold text-gray-900">Transportation as a Barrier</h5>
+                                </div>
+                                <p class="text-gray-700 mt-2">Over <strong>13.3%</strong> of respondents in the LAV cited transportation as a direct barrier to receiving medical care. This is significantly higher than the San Luis Valley (9.0%) and the Upper Arkansas Valley (8.2%).</p>
                             </div>
                         </div>
-                        <div class="absolute bottom-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-md text-xs font-bold text-teal-800 shadow-sm border border-teal-100">
-                            Wait times peak in SLV
+                        <div class="img-container">
+                            <img src="https://drive.google.com/uc?export=view&id=13A8PS4-eaxmD-SyZESXwQHHcdg11JjA1" alt="Map Showing Transportation Barriers">
+                        </div>
+                        <div class="lg:col-span-2 bg-brand-50 p-4 rounded border-l-4 border-brand-500">
+                            <strong class="text-brand-900">Conclusion:</strong> <span class="text-gray-700">For the LAV, the barrier is not necessarily the cost of the doctor or the wait time at the clinic—it is the literal ability to travel from their home to the healthcare facility. Public transit solutions, mobile clinics, or telehealth expansions would yield the highest return on investment in this specific region.</span>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <!-- LAV Section -->
-            <div class="flex flex-col md:flex-row gap-12 items-center">
-                <div class="md:w-1/2 order-2 md:order-1">
-                    <div class="grid grid-cols-2 gap-2 bg-amber-50 rounded-2xl p-2 rotate-1 hover:rotate-0 transition duration-500">
-                         <!-- Replaced with Drive Image IDs using thumbnail endpoint -->
-                         <div class="relative overflow-hidden rounded-lg shadow-md group cursor-zoom-in" onclick="openModal('https://drive.google.com/thumbnail?id=1EQkHQtcpyZdT2BnhlBl1betVjdPBt2OB&sz=w1000')">
-                            <img src="https://drive.google.com/thumbnail?id=1EQkHQtcpyZdT2BnhlBl1betVjdPBt2OB&sz=w1000" alt="Dental Appointment Map" class="w-full h-48 object-cover transition duration-300 group-hover:scale-105">
-                            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition flex items-center justify-center opacity-0 group-hover:opacity-100">
-                                <i class="fa-solid fa-magnifying-glass-plus text-white text-2xl drop-shadow-md"></i>
-                            </div>
-                         </div>
-                         <div class="relative overflow-hidden rounded-lg shadow-md group cursor-zoom-in" onclick="openModal('https://drive.google.com/thumbnail?id=1neeI9aZn488WP5RzdGNu5XVQOSBRUgKp&sz=w1000')">
-                            <img src="https://drive.google.com/thumbnail?id=1neeI9aZn488WP5RzdGNu5XVQOSBRUgKp&sz=w1000" alt="Dental Cost Map" class="w-full h-48 object-cover transition duration-300 group-hover:scale-105">
-                            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition flex items-center justify-center opacity-0 group-hover:opacity-100">
-                                <i class="fa-solid fa-magnifying-glass-plus text-white text-2xl drop-shadow-md"></i>
-                            </div>
-                         </div>
-                         <p class="col-span-2 text-center text-xs text-amber-600 mt-2 font-mono">LAV Region: Dental Access vs Cost (Click to Zoom)</p>
-                    </div>
-                </div>
-                <div class="md:w-1/2 order-1 md:order-2 space-y-6">
-                    <div class="flex items-center gap-3">
-                        <span class="w-12 h-1 bg-amber-500 rounded-full"></span>
-                        <h3 class="text-2xl font-bold text-slate-900">Lower Arkansas Valley (LAV)</h3>
-                    </div>
-                    <div class="pl-4 border-l-2 border-amber-100 space-y-4">
-                        <div class="bg-white p-5 rounded-lg shadow-sm border border-slate-100">
-                            <h4 class="font-bold text-amber-700">The Physical Barrier</h4>
-                            <p class="text-slate-600 text-sm mt-2">While cost and appointments are less of a barrier here (good dental access), <span class="font-bold">13.1% cite Transportation</span> as a major hurdle. Getting to the clinic is the hardest part.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 3: Strategy & Conclusion -->
-        <section id="strategy" class="grid lg:grid-cols-3 gap-8 scroll-mt-24">
-            
-            <!-- Strategy Column -->
-            <div class="lg:col-span-2 space-y-8">
-                <div class="bg-slate-900 text-white rounded-3xl p-8 shadow-xl relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-64 h-64 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 -translate-y-1/2 translate-x-1/2"></div>
-                    
-                    <h2 class="text-2xl font-bold mb-6">3. Communication & Outreach</h2>
-                    
-                    <div class="grid sm:grid-cols-2 gap-6">
-                        <div class="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/10">
-                            <div class="text-blue-300 text-2xl mb-2"><i class="fa-solid fa-user-group"></i></div>
-                            <h3 class="font-bold mb-1">Personal Networks</h3>
-                            <p class="text-sm text-slate-300">"Close friends or family" is the dominant information source (~56%). Word-of-mouth beats billboards.</p>
-                        </div>
-                        <div class="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/10">
-                            <div class="text-blue-300 text-2xl mb-2"><i class="fa-solid fa-mobile-screen"></i></div>
-                            <h3 class="font-bold mb-1">Digital Trends</h3>
-                            <p class="text-sm text-slate-300">Social media usage for health info is highest in the LAV (31.1%).</p>
-                        </div>
-                         <div class="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-white/10 sm:col-span-2">
-                            <div class="text-blue-300 text-2xl mb-2"><i class="fa-solid fa-bullhorn"></i></div>
-                            <h3 class="font-bold mb-1">Medicaid Outreach</h3>
-                            <p class="text-sm text-slate-300">Medicaid recipients are uniquely responsive to Local Public Health Agencies (42.9%).</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Conclusion Column -->
-            <div id="conclusion" class="bg-blue-50 border border-blue-100 rounded-3xl p-8">
-                <h2 class="text-2xl font-bold text-blue-900 mb-6">Strategic Path Forward</h2>
-                <ul class="space-y-4">
-                    <li class="flex items-start gap-3">
-                        <i class="fa-solid fa-check-circle text-blue-600 mt-1"></i>
-                        <span class="text-sm text-slate-700"><strong>Expand Dental Capacity:</strong> Specifically target Medicare and Uninsured populations.</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <i class="fa-solid fa-check-circle text-blue-600 mt-1"></i>
-                        <span class="text-sm text-slate-700"><strong>Fix SLV Efficiency:</strong> Address operational bottlenecks to reduce wait times.</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <i class="fa-solid fa-check-circle text-blue-600 mt-1"></i>
-                        <span class="text-sm text-slate-700"><strong>Solve "Last Mile" in LAV:</strong> Implement transportation support or mobile units.</span>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <i class="fa-solid fa-check-circle text-blue-600 mt-1"></i>
-                        <span class="text-sm text-slate-700"><strong>Support Working Poor:</strong> Extended hours for those with Employer-Sponsored Insurance.</span>
-                    </li>
-                </ul>
-                <div class="mt-8 pt-6 border-t border-blue-200">
-                    <p class="text-xs text-blue-500 font-semibold uppercase tracking-widest text-center">2025 Valley-Wide Health Systems</p>
-                </div>
-            </div>
-
-        </section>
+        </div>
 
     </main>
 
-    <footer class="bg-white border-t border-slate-200 py-12 mt-12">
-        <div class="max-w-7xl mx-auto px-4 text-center text-slate-400 text-sm">
-            <p>&copy; 2025 Valley-Wide Health Systems Community Needs Assessment.</p>
-        </div>
+    <footer class="bg-gray-900 text-gray-400 py-8 text-center mt-12">
+        <p>&copy; 2026 Valley-Wide Community Needs Assessment Report. All rights reserved.</p>
     </footer>
-
-    <!-- Image Modal -->
-    <div id="imageModal" class="fixed inset-0 z-[100] hidden bg-slate-900/95 backdrop-blur-sm flex items-center justify-center p-4 cursor-zoom-out transition-opacity duration-300" onclick="closeModal()">
-        <div class="relative max-w-7xl max-h-[90vh] w-full flex items-center justify-center">
-            <img id="modalImage" src="" alt="Zoomed Image" class="max-w-full max-h-[90vh] w-auto h-auto rounded-lg shadow-2xl object-contain" onclick="event.stopPropagation()">
-            <button class="absolute top-0 right-0 -mt-12 -mr-4 text-white hover:text-blue-400 transition text-4xl font-bold p-2" onclick="closeModal()">&times;</button>
-        </div>
-    </div>
-
-    <script>
-        function openModal(src) {
-            const modal = document.getElementById('imageModal');
-            const modalImg = document.getElementById('modalImage');
-            
-            // Set image source
-            modalImg.src = src;
-            
-            // Show modal
-            modal.classList.remove('hidden');
-            
-            // Prevent body scroll
-            document.body.classList.add('modal-open');
-        }
-
-        function closeModal() {
-            const modal = document.getElementById('imageModal');
-            
-            // Hide modal
-            modal.classList.add('hidden');
-            
-            // Restore body scroll
-            document.body.classList.remove('modal-open');
-        }
-
-        // Close modal on Escape key
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeModal();
-            }
-        });
-    </script>
 
 </body>
 </html>
