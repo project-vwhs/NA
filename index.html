@@ -30,12 +30,20 @@
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .img-container img {
-            width: 100%;
-            height: auto;
+        .img-container {
             border-radius: 0.5rem;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
             border: 1px solid #e5e7eb;
+            overflow: hidden; /* Ensures the zoomed image doesn't break out of the rounded corners */
+        }
+        .img-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease; /* Smooth transition for zoom */
+        }
+        .img-container:hover img {
+            transform: scale(1.05); /* Zooms the image in by 5% */
         }
     </style>
 </head>
