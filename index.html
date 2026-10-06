@@ -3,111 +3,308 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Community Needs Assessment</title>
-    <!-- Tailwind CSS for styling -->
+    <title>Valley-Wide Needs Assessment - Presentation and Review</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome for icons -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        /* Custom scrollbar for a cleaner look */
-        ::-webkit-scrollbar {
-            width: 8px;
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
         }
-        ::-webkit-scrollbar-track {
-            background: #f1f5f9; 
+        .pdf-frame-container {
+            position: relative;
+            width: 100%;
+            height: 75vh;
+            min-height: 580px;
         }
-        ::-webkit-scrollbar-thumb {
-            background: #cbd5e1; 
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
             border-radius: 4px;
         }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #94a3b8; 
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
         }
     </style>
 </head>
-<body class="bg-slate-50 min-h-screen flex flex-col font-sans text-slate-800">
+<body class="min-h-screen flex flex-col bg-slate-50 text-slate-800">
 
-    <!-- Header Section -->
-    <header class="bg-indigo-700 text-white shadow-md sticky top-0 z-10">
-        <div class="container mx-auto px-4 py-5 max-w-6xl flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <i class="fa-solid fa-file-pdf text-2xl text-indigo-200"></i>
-                <h1 class="text-xl md:text-2xl font-bold tracking-tight">Community Needs Assessment</h1>
-            </div>
-            <a href="https://drive.google.com/file/d/1IQHibvbgwS7VJbRZycKRhlcogJi75WV5/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="hidden md:flex items-center gap-2 bg-indigo-600 hover:bg-indigo-500 transition-colors px-4 py-2 rounded-lg text-sm font-medium">
-                <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                Open in Drive
-            </a>
-        </div>
-    </header>
-
-    <!-- Main Content -->
-    <main class="flex-grow container mx-auto px-4 py-8 max-w-6xl flex flex-col">
-        
-        <!-- Info Card -->
-        <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-5 md:p-6 mb-6">
-            <h2 class="text-lg font-semibold text-slate-800 mb-2">Document Overview</h2>
-            <p class="text-slate-600 leading-relaxed mb-4">
-                Review the latest Community Needs Assessment below. This document outlines key findings, demographic data, and prioritized action areas to help guide future community development and resource allocation.
-            </p>
-            <div class="flex items-center gap-4 text-sm mb-4">
-                <a href="https://drive.google.com/file/d/1IQHibvbgwS7VJbRZycKRhlcogJi75WV5/view?usp=drive_link" target="_blank" class="text-indigo-600 hover:text-indigo-800 font-medium flex items-center gap-1 transition-colors">
-                    <i class="fa-solid fa-download"></i> Download / View Original
-                </a>
-            </div>
-            
-            <!-- Navigation Tip for Bookmarks -->
-            <div class="p-3 bg-indigo-50 rounded-lg border border-indigo-100 flex items-start gap-3">
-                <i class="fa-solid fa-circle-info text-indigo-500 mt-0.5"></i>
-                <p class="text-sm text-indigo-800 leading-relaxed">
-                    <strong>Navigation Tip:</strong> To jump to specific sections, click the 
-                    <strong>Document Outline</strong> icon (it looks like a bulleted list) located on the left side of the PDF viewer below.
+    <!-- Notice & Callout Banner -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-4">
+        <div class="bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 rounded-2xl p-6 sm:p-8 text-white shadow-xl relative overflow-hidden">
+            <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="relative z-10 max-w-3xl">
+                <div class="inline-flex items-center gap-2 bg-blue-500/20 text-blue-200 border border-blue-400/30 px-3 py-1 rounded-full text-xs font-semibold mb-4">
+                    <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
+                    Internal Review
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white mb-3">
+                    Valley-Wide Needs Assessment - Presentation and Review
+                </h2>
+                <p class="text-slate-300 text-base sm:text-lg leading-relaxed mb-6">
+                    We are actively seeking feedback on the needs assessment from team members across the organization. Please review the embedded documents below.
                 </p>
+                <div class="flex flex-wrap items-center gap-4 pt-4 border-t border-slate-700/60">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-blue-600/40 border border-blue-400/30 flex items-center justify-center font-bold text-sm text-white">
+                            CS
+                        </div>
+                        <div>
+                            <div class="text-xs text-slate-400">Feedback Point of Contact</div>
+                            <div class="text-sm font-semibold text-white">Christian Shotts</div>
+                        </div>
+                    </div>
+                    <div class="sm:ml-auto">
+                        <div class="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-slate-800/80 border border-slate-700 text-xs sm:text-sm text-slate-300">
+                            <svg class="w-4 h-4 text-blue-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span>Please route any notes or feedback directly to <strong>Christian Shotts</strong> via internal organization channels.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Document Viewer Section -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-grow w-full">
+        <!-- Viewer Header Controls -->
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-4 mb-6">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <!-- Document Switching Tabs -->
+                <div class="flex items-center bg-slate-100 p-1 rounded-xl">
+                    <button id="tab-doc1" onclick="switchDocument('doc1')" class="flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-lg bg-white text-slate-900 shadow-sm transition">
+                        <svg class="w-4 h-4 text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                        </svg>
+                        <span>Document 1</span>
+                        <span class="text-xs text-slate-400 font-normal hidden sm:inline">(Needs Assessment)</span>
+                    </button>
+                    <button id="tab-doc2" onclick="switchDocument('doc2')" class="flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg text-slate-600 hover:text-slate-900 transition">
+                        <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                        <span>Document 2</span>
+                        <span class="text-xs text-slate-400 font-normal hidden sm:inline">(PPT Presentation)</span>
+                    </button>
+                    <button id="tab-split" onclick="switchDocument('split')" class="flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg text-slate-600 hover:text-slate-900 transition">
+                        <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"></path>
+                        </svg>
+                        <span>Side-by-Side</span>
+                    </button>
+                </div>
+
+                <!-- External Actions & Direct Links -->
+                <div class="flex items-center gap-2">
+                    <a id="external-link-btn" href="https://drive.google.com/file/d/1WyQJA8Rde67FoJAIwLCdkWej7cSlrobt/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3.5 py-2 text-sm font-medium text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-lg transition">
+                        <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                        </svg>
+                        <span>Open in Google Drive</span>
+                    </a>
+                    <button onclick="toggleExpandViewer()" id="expand-btn" class="inline-flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-lg transition" title="Toggle larger view">
+                        <svg id="expand-icon" class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-5h-4m4 0v4m0 0l-5-5m-6 16l-5-5m0 0v4m0-4h4m11 0l-5-5m5 5v-4m0 4h-4"></path>
+                        </svg>
+                        <span id="expand-text">Full View</span>
+                    </button>
+                </div>
             </div>
         </div>
 
-        <!-- PDF Embed Container -->
-        <!-- Note: Google Drive links must use '/preview' instead of '/view' to be embedded -->
-        <div class="bg-slate-200 rounded-xl shadow-lg border border-slate-300 overflow-hidden relative w-full h-[65vh] md:h-[80vh] min-h-[500px]">
+        <!-- View Container for PDF Embeds -->
+        <div id="viewer-container" class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden p-2 transition-all duration-300">
             
-            <!-- Loading Indicator (visible while iframe loads) -->
-            <div class="absolute inset-0 flex flex-col items-center justify-center text-slate-500 z-0">
-                <i class="fa-solid fa-spinner fa-spin text-3xl mb-3"></i>
-                <p>Loading document...</p>
-            </div>
-
-            <iframe 
-                src="https://drive.google.com/file/d/1IQHibvbgwS7VJbRZycKRhlcogJi75WV5/preview" 
-                class="absolute inset-0 w-full h-full border-0 z-10 bg-white" 
-                title="Community Needs Assessment PDF Viewer"
-                width="100%"
-                height="100%"
-                allow="autoplay"
-                onload="this.previousElementSibling.style.display='none';"
-            >
-                <!-- Fallback content if iframes are not supported -->
-                <div class="p-8 text-center bg-white h-full flex flex-col items-center justify-center">
-                    <i class="fa-solid fa-triangle-exclamation text-amber-500 text-4xl mb-4"></i>
-                    <p class="text-slate-700 mb-4">Your browser does not support embedded frames.</p>
-                    <a href="https://drive.google.com/file/d/1IQHibvbgwS7VJbRZycKRhlcogJi75WV5/view?usp=drive_link" target="_blank" class="bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700 transition-colors">
-                        Click here to view the PDF
+            <!-- Document 1 Single Container -->
+            <div id="container-doc1" class="pdf-frame-container w-full">
+                <iframe 
+                    id="iframe-doc1"
+                    src="https://drive.google.com/file/d/1WyQJA8Rde67FoJAIwLCdkWej7cSlrobt/preview" 
+                    class="w-full h-full rounded-xl border border-slate-200 bg-slate-100" 
+                    allow="autoplay"
+                    loading="lazy"
+                    title="Needs Assessment Document 1">
+                </iframe>
+                <div class="mt-2 flex items-center justify-between text-xs text-slate-500 px-2 py-1">
+                    <span>Displaying Document 1 (Primary Needs Assessment)</span>
+                    <a href="https://drive.google.com/file/d/1WyQJA8Rde67FoJAIwLCdkWej7cSlrobt/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="text-brand-600 hover:underline inline-flex items-center gap-1">
+                        Direct Link
+                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
                     </a>
                 </div>
-            </iframe>
+            </div>
+
+            <!-- Document 2 Single Container (Hidden by default) -->
+            <div id="container-doc2" class="pdf-frame-container w-full hidden">
+                <iframe 
+                    id="iframe-doc2"
+                    src="https://drive.google.com/file/d/1kiTvzRMNKegpp9B0mWOY1kGkf7-h4AHd/preview" 
+                    class="w-full h-full rounded-xl border border-slate-200 bg-slate-100" 
+                    allow="autoplay"
+                    loading="lazy"
+                    title="Needs Assessment Document 2">
+                </iframe>
+                <div class="mt-2 flex items-center justify-between text-xs text-slate-500 px-2 py-1">
+                    <span>Displaying Document 2 (PPT Presentation)</span>
+                    <a href="https://drive.google.com/file/d/1kiTvzRMNKegpp9B0mWOY1kGkf7-h4AHd/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="text-brand-600 hover:underline inline-flex items-center gap-1">
+                        Direct Link
+                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Side-by-side Dual Container (Hidden by default) -->
+            <div id="container-split" class="hidden grid grid-cols-1 lg:grid-cols-2 gap-4">
+                <div class="pdf-frame-container">
+                    <div class="mb-1 text-xs font-semibold text-slate-600 flex justify-between items-center px-1">
+                        <span>Doc 1: Primary Assessment</span>
+                        <a href="https://drive.google.com/file/d/1WyQJA8Rde67FoJAIwLCdkWej7cSlrobt/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="text-brand-600 text-xs">Drive ↗</a>
+                    </div>
+                    <iframe 
+                        src="https://drive.google.com/file/d/1WyQJA8Rde67FoJAIwLCdkWej7cSlrobt/preview" 
+                        class="w-full h-full rounded-xl border border-slate-200 bg-slate-100" 
+                        allow="autoplay"
+                        loading="lazy"
+                        title="Split view doc 1">
+                    </iframe>
+                </div>
+                <div class="pdf-frame-container">
+                    <div class="mb-1 text-xs font-semibold text-slate-600 flex justify-between items-center px-1">
+                        <span>Doc 2: PPT Presentation</span>
+                        <a href="https://drive.google.com/file/d/1kiTvzRMNKegpp9B0mWOY1kGkf7-h4AHd/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="text-brand-600 text-xs">Drive ↗</a>
+                    </div>
+                    <iframe 
+                        src="https://drive.google.com/file/d/1kiTvzRMNKegpp9B0mWOY1kGkf7-h4AHd/preview" 
+                        class="w-full h-full rounded-xl border border-slate-200 bg-slate-100" 
+                        allow="autoplay"
+                        loading="lazy"
+                        title="Split view doc 2">
+                    </iframe>
+                </div>
+            </div>
+
+            <!-- Fallback Info Note -->
+            <div class="mt-3 p-3 bg-amber-50 rounded-xl border border-amber-200 text-amber-800 text-xs flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <svg class="w-4 h-4 text-amber-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span>If the PDF preview asks for sign-in or doesn't display due to browser privacy settings, use the <strong>Open in Google Drive</strong> button above.</span>
+                </div>
+            </div>
         </div>
 
     </main>
 
     <!-- Footer -->
-    <footer class="bg-white border-t border-slate-200 py-6 mt-auto">
-        <div class="container mx-auto px-4 max-w-6xl text-center text-slate-500 text-sm">
-            <p>&copy; <span id="year"></span> Community Needs Assessment. All rights reserved.</p>
+    <footer class="bg-white border-t border-slate-200 py-6 mt-12 text-slate-500 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>
+                Valley-Wide Needs Assessment &bull; Presentation and Review
+            </div>
+            <div>
+                Please direct feedback internally to <span class="font-medium text-slate-700">Christian Shotts</span>
+            </div>
         </div>
     </footer>
 
+    <!-- Application Logic & Handlers -->
     <script>
-        // Dynamically set the current year in the footer
-        document.getElementById('year').textContent = new Date().getFullYear();
+        const doc1DriveUrl = "https://drive.google.com/file/d/1WyQJA8Rde67FoJAIwLCdkWej7cSlrobt/view?usp=drive_link";
+        const doc2DriveUrl = "https://drive.google.com/file/d/1kiTvzRMNKegpp9B0mWOY1kGkf7-h4AHd/view?usp=drive_link";
+        
+        let currentMode = 'doc1';
+        let isExpanded = false;
+
+        function switchDocument(mode) {
+            currentMode = mode;
+            
+            const tab1 = document.getElementById('tab-doc1');
+            const tab2 = document.getElementById('tab-doc2');
+            const tabSplit = document.getElementById('tab-split');
+
+            const container1 = document.getElementById('container-doc1');
+            const container2 = document.getElementById('container-doc2');
+            const containerSplit = document.getElementById('container-split');
+            const externalLink = document.getElementById('external-link-btn');
+
+            // Reset tab styling
+            [tab1, tab2, tabSplit].forEach(tab => {
+                tab.className = "flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg text-slate-600 hover:text-slate-900 transition";
+            });
+
+            // Hide all views
+            container1.classList.add('hidden');
+            container2.classList.add('hidden');
+            containerSplit.classList.add('hidden');
+
+            if (mode === 'doc1') {
+                tab1.className = "flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-lg bg-white text-slate-900 shadow-sm transition";
+                container1.classList.remove('hidden');
+                externalLink.href = doc1DriveUrl;
+                externalLink.classList.remove('opacity-50', 'pointer-events-none');
+            } else if (mode === 'doc2') {
+                tab2.className = "flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-lg bg-white text-slate-900 shadow-sm transition";
+                container2.classList.remove('hidden');
+                externalLink.href = doc2DriveUrl;
+                externalLink.classList.remove('opacity-50', 'pointer-events-none');
+            } else if (mode === 'split') {
+                tabSplit.className = "flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-lg bg-white text-slate-900 shadow-sm transition";
+                containerSplit.classList.remove('hidden');
+                externalLink.href = doc1DriveUrl;
+            }
+        }
+
+        function toggleExpandViewer() {
+            const containers = document.querySelectorAll('.pdf-frame-container');
+            const expandText = document.getElementById('expand-text');
+            
+            isExpanded = !isExpanded;
+            containers.forEach(container => {
+                if (isExpanded) {
+                    container.style.height = '90vh';
+                    expandText.innerText = 'Standard View';
+                } else {
+                    container.style.height = '75vh';
+                    expandText.innerText = 'Full View';
+                }
+            });
+        }
     </script>
 </body>
 </html>
